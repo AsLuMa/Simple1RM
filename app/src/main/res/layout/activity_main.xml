@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity" android:id="@+id/main_constraint">
+        tools:context=".MainActivity"
+        android:id="@+id/main_constraint">
 
     <EditText
             android:id="@+id/enter_max"
@@ -14,13 +15,14 @@
             android:inputType="number"
             android:hint="@string/enter_1rm"
             android:textSize="30sp"
-            android:onClick="doBasicMath"
+            android:onClick="updateWeightEditText"
             android:maxLength="3"
             android:gravity="center_horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/rep_weight"
             app:layout_constraintTop_toTopOf="parent"/>
+
 
     <TextView
             android:id="@+id/rep_weight"
@@ -43,5 +45,13 @@
             app:layout_constraintTop_toBottomOf="@+id/rep_weight"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerWeight"
+            app:layout_constraintTop_toBottomOf="@id/rep_percent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

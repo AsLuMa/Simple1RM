@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">1RM Simple</string>
+    <string name="app_name">1 Rep Max calculator</string>
     <string name="enter_1rm">Enter max</string>
     <string name="percent_70">70%</string>
     <string name="hint_enter_max">00</string>
