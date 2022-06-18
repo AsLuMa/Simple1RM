@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     //TODO should this be the gridview? "Data to display"
     //TODO Should these Strings be ints or will that just mess everything up?
-    private final LinkedList<String> mCalculation = new LinkedList<>();
-    private final LinkedList<Integer> mPercentList = new LinkedList<>();
-    private final HashMap<Integer, Integer> percentCalculation = new HashMap<>();
+    private final List<String> mCalculation = new ArrayList<>();
+    private final List<Integer> mPercentList = new ArrayList<>();
+    //private final HashMap<Integer, Integer> percentCalculation = new HashMap<>();
 
     private RecyclerView mRecyclerView;
     private RecycleViewAdapter mAdapter;
@@ -39,6 +40,22 @@ public class MainActivity extends AppCompatActivity {
         one_rm = findViewById(R.id.enter_max);
         percent = findViewById(R.id.rep_percent);
 
+        int start = 70;
+        for (int i = 0; i <= 8; i++) {
+            mPercentList.add(start);
+            start += 5;
+        }
+
+        System.out.println(mPercentList);
+
+        for (int j = 0; j <= 8; j++){
+            mCalculation.add("1" + j);
+        }
+
+
+        System.out.println(mCalculation);
+
+
         /*int startingPercentage = 70;
         for (int i = 0; i <= 9; i++){
             percentCalculation.put(startingPercentage,
@@ -52,22 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         // TODO comment these loops out once you're done with the hashmap implementation
-        int start = 70;
-        for (int i = 0; i <= 9; i++) {
-            mPercentList.add(start);
-            start += 5;
-        }
 
-        System.out.println(mPercentList);
 
-        for (int j = 0; j <= 8; j++){
-            mCalculation.addLast("1" + j);
-        }
-
-        System.out.println(mCalculation);
 
         mRecyclerView = findViewById(R.id.recyclerWeight);
-        mAdapter = new RecycleViewAdapter(this, mCalculation);
+        mAdapter = new RecycleViewAdapter(this, mCalculation, mPercentList);
         mRecyclerView.setAdapter(mAdapter);
         // THE ORIGINAL mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));

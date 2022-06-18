@@ -9,24 +9,29 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.RecycleViewHolder>{
 
-    private final LinkedList<String> mWeightList;
+    private final List<String> mWeightList;
+    private final List<Integer> mPercentageList;
     private LayoutInflater mInflater;
 
-    public RecycleViewAdapter(Context context, LinkedList<String> weightList){
+    public RecycleViewAdapter(Context context, List<String> weightList, List<Integer> mPercentagelist){
         mInflater = LayoutInflater.from(context);
         this.mWeightList = weightList;
+        this.mPercentageList = mPercentagelist;
     }
 
     class RecycleViewHolder extends RecyclerView.ViewHolder{
-        public final TextView weightTextView;
-        final RecycleViewAdapter mAdapter;
+        public TextView weightTextView;
+        public TextView percentageTextView;
+        private RecycleViewAdapter mAdapter;
 
         public RecycleViewHolder(View myView, RecycleViewAdapter adapter){
             super(myView);
             weightTextView = myView.findViewById(R.id.rep_weight);
+            percentageTextView = myView.findViewById(R.id.rep_percent);
             this.mAdapter = adapter;
         }
 
@@ -41,8 +46,11 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull RecycleViewHolder holder, int position) {
-        String mCurrent = mWeightList.get(position);
-        holder.weightTextView.setText(mCurrent);
+        String wCurrent = mWeightList.get(position);
+        int pCurrent = mPercentageList.get(position);
+        //TODO this does nothing
+        holder.weightTextView.setText(wCurrent);
+        holder.percentageTextView.setText(wCurrent);
     }
 
     @Override
