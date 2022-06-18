@@ -1,6 +1,7 @@
 package com.example.a1rmsimple;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         this.notifyDataSetChanged();
     }
 
-    class RecycleViewHolder extends RecyclerView.ViewHolder{
+    class RecycleViewHolder extends RecyclerView.ViewHolder {
         public TextView weightTextView;
         public TextView percentageTextView;
         private RecycleViewAdapter mAdapter;
@@ -34,7 +35,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             weightTextView = myView.findViewById(R.id.rep_weight);
             percentageTextView = myView.findViewById(R.id.rep_percent);
             this.mAdapter = adapter;
+
         }
+
 
     }
 
@@ -59,6 +62,19 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         }*/
         //TODO fix this (the string resource already exists)
         holder.percentageTextView.setText(String.valueOf(pCurrent) + "%");
+        holder.weightTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.weightTextView.getCurrentTextColor() != Color.RED){
+                    holder.weightTextView.setTextColor(Color.RED);
+                }
+                else {
+                    holder.weightTextView.setTextColor(Color.GRAY);
+                }
+
+
+            }
+        });
     }
 
     @Override

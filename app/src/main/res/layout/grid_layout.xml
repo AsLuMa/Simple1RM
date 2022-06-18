@@ -4,8 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ConstraintLayoutGrid"
-        android:layout_margin="8dp">
+        android:id="@+id/ConstraintLayoutGrid">
 
     <TextView
             android:id="@+id/rep_weight"
@@ -13,7 +12,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:hint="@string/hint_enter_max"
-            android:textSize="50sp"
+            android:textSize="54sp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_chainStyle="packed" app:layout_constraintBottom_toTopOf="@+id/rep_percent"/>
     <TextView
