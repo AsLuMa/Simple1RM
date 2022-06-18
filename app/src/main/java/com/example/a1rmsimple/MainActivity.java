@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(mPercentList);
 
         for (int j = 0; j <= 8; j++){
-            mCalculation.add("00");
+            mCalculation.add("0");
         }
 
         System.out.println(mCalculation);
@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
 UI:
 - padding/margins for grid to constraintlayout
 - fit calculated weight text into box - it doesn't look good when you end up with a three digit nr
-- grid moves into enter_weight edittext when keyboard is opened
+- grid moves into enter_weight edittext when keyboard is opened: ATTRIBUTES FOR IME
+- Tiny rykk-man lifts weights when input has been entered
 
 Logikk:
 - separate the math from the good stuff

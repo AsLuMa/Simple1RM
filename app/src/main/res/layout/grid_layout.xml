@@ -4,22 +4,23 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ConstraintLayoutGrid">
+        android:id="@+id/ConstraintLayoutGrid"
+        android:layout_margin="8dp">
 
     <TextView
             android:id="@+id/rep_weight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="90sp"
             android:gravity="center_horizontal"
             android:hint="@string/hint_enter_max"
+            android:textSize="50sp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_chainStyle="packed" app:layout_constraintBottom_toTopOf="@+id/rep_percent"/>
     <TextView
             android:id="@+id/rep_percent"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/percent_70"
+            android:text="@string/percent"
             android:gravity="center_horizontal"
             android:textSize="26sp"
             app:layout_constraintStart_toStartOf="@+id/rep_weight" app:layout_constraintBottom_toBottomOf="parent"

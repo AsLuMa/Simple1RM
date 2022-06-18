@@ -51,7 +51,14 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         int pCurrent = mPercentageList.get(position);
         //TODO this does nothing
         holder.weightTextView.setText(wCurrent);
-        holder.percentageTextView.setText(String.valueOf(pCurrent));
+        /*if (mWeightList.get(position).length() <= 2){
+            holder.weightTextView.setTextSize(64);
+        }
+        else{
+            holder.weightTextView.setTextSize(50);
+        }*/
+        //TODO fix this (the string resource already exists)
+        holder.percentageTextView.setText(String.valueOf(pCurrent) + "%");
     }
 
     @Override
