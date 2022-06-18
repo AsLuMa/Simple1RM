@@ -21,6 +21,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         mInflater = LayoutInflater.from(context);
         this.mWeightList = weightList;
         this.mPercentageList = mPercentagelist;
+        this.notifyDataSetChanged();
     }
 
     class RecycleViewHolder extends RecyclerView.ViewHolder{
@@ -50,7 +51,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         int pCurrent = mPercentageList.get(position);
         //TODO this does nothing
         holder.weightTextView.setText(wCurrent);
-        holder.percentageTextView.setText(wCurrent);
+        holder.percentageTextView.setText(String.valueOf(pCurrent));
     }
 
     @Override

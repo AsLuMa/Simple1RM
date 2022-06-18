@@ -49,33 +49,14 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(mPercentList);
 
         for (int j = 0; j <= 8; j++){
-            mCalculation.add("1" + j);
+            mCalculation.add("00");
         }
-
 
         System.out.println(mCalculation);
-
-
-        /*int startingPercentage = 70;
-        for (int i = 0; i <= 9; i++){
-            percentCalculation.put(startingPercentage,
-                    doBasicMath(startingPercentage, Integer.parseInt(one_rm.getText().toString())));
-            startingPercentage += 5;
-        }
-
-        for (HashMap.Entry<Integer, Integer> var : percentCalculation.entrySet()){
-            System.out.println(var.getKey() + " " + var.getValue());
-        }*/
-
-
-        // TODO comment these loops out once you're done with the hashmap implementation
-
-
 
         mRecyclerView = findViewById(R.id.recyclerWeight);
         mAdapter = new RecycleViewAdapter(this, mCalculation, mPercentList);
         mRecyclerView.setAdapter(mAdapter);
-        // THE ORIGINAL mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
     }
 
@@ -85,10 +66,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateWeightEditText(View view){
-        //TODO need to pass percentageOfMax from somewhere else
-        int calculated = doBasicMath(70, Integer.parseInt(one_rm.getText().toString()));
-        calculation.setText(String.valueOf(calculated));
-        System.out.println("We showed basic math!");
+        if (!one_rm.getText().toString().equals("")){
+            mCalculation.clear();
+            int k = 0;
+            for (int i = 0; i <= mPercentList.size()-1; i++){
+                mCalculation.add(String.valueOf(doBasicMath(mPercentList.get(k), Integer.parseInt(one_rm.getText().toString()))));
+                k++;
+            }
+            System.out.println("mcalc in update" + mCalculation);
+            mAdapter.notifyDataSetChanged();
+            //TODO update values/reinflate view - calculation.setText(String.valueOf(mCalculation));
+            System.out.println("We showed basic math!");
+        }
+
     }
 
 }
@@ -97,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
 UI:
 - padding/margins for grid to constraintlayout
+- fit calculated weight text into box - it doesn't look good when you end up with a three digit nr
 - grid moves into enter_weight edittext when keyboard is opened
 
 Logikk:
@@ -104,6 +95,7 @@ Logikk:
 - data in each column should update as I input and delete data from max_weight edittext
 - fix data - both percentage
 - fix data - update edittext with result from calculation
+- round up calculation
 
 
 
