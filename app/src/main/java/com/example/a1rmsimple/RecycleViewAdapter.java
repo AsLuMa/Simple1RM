@@ -18,7 +18,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public RecycleViewAdapter(Context context, LinkedList<String> weightList){
         mInflater = LayoutInflater.from(context);
         this.mWeightList = weightList;
-
     }
 
     class RecycleViewHolder extends RecyclerView.ViewHolder{
