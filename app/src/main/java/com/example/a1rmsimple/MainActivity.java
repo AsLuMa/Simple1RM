@@ -1,20 +1,14 @@
 package com.example.a1rmsimple;
 
-import android.graphics.Color;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.GridLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,9 +51,12 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(mCalculation);
 
         mRecyclerView = findViewById(R.id.recyclerWeight);
+        mRecyclerView.addItemDecoration(new GridItemDecoration(this, 6));
         mAdapter = new RecycleViewAdapter(this, mCalculation, mPercentList);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+
+
     }
 
     public int doBasicMath(int percentageOfMax, int maxWeight){

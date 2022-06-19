@@ -59,6 +59,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         int misty = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.MistyRose);
         int hotPink = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.HotPink);
         int crimson = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.Crimson);
+        int chocolate = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.Chocolate);
 
         holder.weightTextView.setText(wCurrent);
         /*if (mWeightList.get(position).length() <= 2){
@@ -76,10 +77,14 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             public void onClick(View v) {
                 if (holder.weightTextView.getCurrentTextColor() != deepPink){
                     holder.weightTextView.setTextColor(deepPink);
+                    holder.weightTextView.setBackgroundColor(Color.WHITE);
                 }
-                else {
-                    holder.weightTextView.setTextColor(crimson);
+
+                else if (holder.weightTextView.getCurrentTextColor() == deepPink){
+                    holder.weightTextView.setTextColor(Color.WHITE);
+                    holder.weightTextView.setBackgroundColor(chocolate);
                 }
+
 
             }
         });

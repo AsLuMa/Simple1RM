@@ -8,19 +8,22 @@
 
     <TextView
             android:id="@+id/rep_weight"
+            android:background="@color/White"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:ems="3"
             android:hint="@string/hint_enter_max"
-            android:textColor="@color/HotPink"
+            android:textColor="@color/DeepPink"
             android:textSize="54sp"
+            android:layout_margin="10dp"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_chainStyle="packed" app:layout_constraintBottom_toTopOf="@+id/rep_percent"/>
     <TextView
             android:id="@+id/rep_percent"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
+            android:textColor="@color/BlueViolet"
             android:text="@string/percent"
             android:gravity="center_horizontal"
             android:textSize="26sp"
