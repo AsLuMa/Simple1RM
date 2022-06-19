@@ -13,7 +13,8 @@
             android:layout_height="48dp"
             app:srcCompat="@drawable/rykk"
             android:id="@+id/rykk"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/enter_max"/>
     <EditText
             android:id="@+id/enter_max"
             android:layout_width="wrap_content"

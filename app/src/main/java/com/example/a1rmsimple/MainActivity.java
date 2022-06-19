@@ -1,11 +1,13 @@
 package com.example.a1rmsimple;
 
+import android.graphics.Color;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         return (maxWeight * percentageOfMax)/100;
     }
 
+        //TODO change to ontouchlistener. Does this click need to be handled in adapter?
+        //TODO should I separate the data to another class?
     public void updateWeightEditText(View view){
         if (!one_rm.getText().toString().equals("")){
             mCalculation.clear();
@@ -73,7 +77,9 @@ public class MainActivity extends AppCompatActivity {
                 mCalculation.add(String.valueOf(doBasicMath(mPercentList.get(k), Integer.parseInt(one_rm.getText().toString()))));
                 k++;
             }
+
             System.out.println("mcalc in update" + mCalculation);
+
             mAdapter.notifyDataSetChanged();
             //TODO update values/reinflate view - calculation.setText(String.valueOf(mCalculation));
             System.out.println("We showed basic math!");
@@ -90,12 +96,12 @@ UI:
 - fit calculated weight text into box - it doesn't look good when you end up with a three digit nr
 - grid moves into enter_weight edittext when keyboard is opened: ATTRIBUTES FOR IME
 - Tiny rykk-man lifts weights when input has been entered
+- fixed position for items in grid (set width to three digits)
+- ItemDecoration - look into this
 
 Logikk:
-- separate the math from the good stuff
+- add savestate
 - data in each column should update as I input and delete data from max_weight edittext
-- fix data - both percentage
-- fix data - update edittext with result from calculation
 - round up calculation
 
 

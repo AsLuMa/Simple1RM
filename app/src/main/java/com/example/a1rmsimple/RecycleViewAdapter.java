@@ -5,8 +5,10 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.LinkedList;
@@ -28,16 +30,17 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     class RecycleViewHolder extends RecyclerView.ViewHolder {
         public TextView weightTextView;
         public TextView percentageTextView;
+        public EditText max_rep;
         private RecycleViewAdapter mAdapter;
 
         public RecycleViewHolder(View myView, RecycleViewAdapter adapter){
             super(myView);
             weightTextView = myView.findViewById(R.id.rep_weight);
             percentageTextView = myView.findViewById(R.id.rep_percent);
+            max_rep = myView.findViewById(R.id.enter_max);
             this.mAdapter = adapter;
 
         }
-
 
     }
 
@@ -52,7 +55,11 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
     public void onBindViewHolder(@NonNull RecycleViewHolder holder, int position) {
         String wCurrent = mWeightList.get(position);
         int pCurrent = mPercentageList.get(position);
-        //TODO this does nothing
+        int deepPink = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.DeepPink);
+        int misty = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.MistyRose);
+        int hotPink = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.HotPink);
+        int crimson = ContextCompat.getColor(holder.weightTextView.getContext(), R.color.Crimson);
+
         holder.weightTextView.setText(wCurrent);
         /*if (mWeightList.get(position).length() <= 2){
             holder.weightTextView.setTextSize(64);
@@ -61,20 +68,22 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             holder.weightTextView.setTextSize(50);
         }*/
         //TODO fix this (the string resource already exists)
-        holder.percentageTextView.setText(String.valueOf(pCurrent) + "%");
+        holder.percentageTextView.setText(String.format("%s%%", String.valueOf(pCurrent)));
+
+        //TODO this interacts with the clicks from the edittext. Somehow.
         holder.weightTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.weightTextView.getCurrentTextColor() != Color.RED){
-                    holder.weightTextView.setTextColor(Color.RED);
+                if (holder.weightTextView.getCurrentTextColor() != deepPink){
+                    holder.weightTextView.setTextColor(deepPink);
                 }
                 else {
-                    holder.weightTextView.setTextColor(Color.GRAY);
+                    holder.weightTextView.setTextColor(crimson);
                 }
-
 
             }
         });
+
     }
 
     @Override
